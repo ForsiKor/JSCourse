@@ -1,0 +1,145 @@
+//Возвращает результат объединения двух строк.
+
+function  concatenateStrings ( value1 , value2 ) {
+ if(value1.trim() == '') {
+ 	return value2;
+ } else if(value2.trim() == '') {
+ 	return value1;
+ } else {
+ 	return value1 + value2;
+ }
+}
+
+//Возвращает длину заданной строки.
+
+function  getStringLength ( value ) {
+	return value.length;
+	}
+
+//Возвращает результат строкового шаблона и заданные параметры firstName и lastName.
+
+	function  getStringFromTemplate ( firstName , lastName ) {
+		let str1 = firstName;
+		let str2 = lastName;
+		let str = " ";
+		alert("Здравствуйте, " + $(str1 + str + str2));
+	}
+
+//Извлекает имя из строки шаблона 'Hello, First_Name Last_Name!'
+
+function   extractNameFromTemplate ( value ) {
+  for(var i = 0; i < value.length; i++){
+  	if(value[i] == ','){
+  		for(var j = 0; j < value.length; j++){
+  			if(value[j] == ' ' && value[j-1] != ','){
+  				var firstName = value.substr(i+1, j-(i+1))
+  			}
+  		}
+  	}
+  }
+  for(var i = 0; i < value.length; i++){
+  	if(value[i] == ' ' && value[i-1] != ','){
+  		for(var j = 0; j < value.length; j++){
+  			if(value[j] == '!' && value[j-1] != ' '){
+  				var lastName = value.substr(i , j-i);
+  			}
+  		}
+  	}
+  }
+  return firstName + lastName;
+}
+
+//Возвращает первый символ заданной строки.
+
+function  getFirstChar ( value ) {
+  value.trim();
+  return value[0];
+}
+
+//Удаляет начальные и конечные пробельные символы из строки.
+
+function  removeLeadingAndTrailingWhitespaces ( value ) {
+  value.trim();
+}
+
+//Возвращает строку, которая повторяется указанное количество раз.
+
+function repeatString(value, count) {
+ return value.repeat(count);
+}
+
+// Удалить первое вхождение строки внутри другой строки
+
+function  removeFirstOccurferences ( str , value ) {
+  return str.replace(value, '');
+}
+
+//Удалить первые и последние угловые скобки из строки тега
+
+function  unbracketTag ( str ) {
+  return str = str.replace(/[<()>]/g, '');
+}
+
+//Преобразует все символы указанной строки в верхний регистр
+
+function  convertToUpperCase ( str ) {
+  return str.toLocaleUpperCase();
+}
+
+//Извлекает письма из одной строки со списком писем, разделенных точкой с запятой
+
+function  extractEmails ( str ) {
+ return str.split([',']);
+}
+
+//Возвращает строковое представление прямоугольника с заданными шириной и высотой
+ // использование псевдографических символов
+
+function  getRectangleString ( width , height ) {
+	var str1 = '-';
+	var str2 = '|';
+  return str1.repeat(width);
+  return str2.repeat(height\n);
+}
+
+//Кодировать указанную строку с шифром ROT13
+
+function  encodeToRot13 ( str ) {
+  var codeA = "A".charCodeAt(0);
+	var codeN = "N".charCodeAt(0);
+	var codeZ = "Z".charCodeAt(0);
+	var newArr = [];
+
+for(var i =0; i<str.length; i++){
+    var code = str.charCodeAt(i);
+    if(code >= codeA && code <= codeZ){
+        if(code >= codeN)
+            newArr.push(String.fromCharCode(code - 13));
+        else
+            newArr.push(String.fromCharCode(code + 13));
+    } else {
+        newArr.push(str[i]);
+      }
+    }
+     return newArr.join("");
+}
+
+//Возвращает true, если значение является строкой; иначе ложно.
+
+function  isString ( value ) {
+  if(typeof value == "string"){
+  	return true;
+  } else {
+  	return false;
+  }
+}
+
+//Возвращает идентификатор игровой карты.
+
+function  getCardId ( value ) {
+  var arr = [«A ♣», «2 ♣», «3 ♣», «4 ♣», «5 ♣», «6 ♣», «7 ♣», «8 ♣», «9 ♣», «10 ♣» , 'J ♣', 'Q ♣', 'K ♣',
+  	«А ♦», «2 ♦», «3 ♦», «4 ♦», «5 ♦», «6 ♦», «7 ♦», «8 ♦», «9 ♦», «10 ♦» , 'J ♦', 'Q ♦', 'K ♦',
+  	«A ♥», «2 ♥», «3 ♥», «4 ♥», «5 ♥», «6 ♥», «7 ♥», «8 ♥», «9 ♥», «10 ♥» 'J ♥', 'Q ♥', 'K ♥',
+  	«A ♠», «2 ♠», «3 ♠», «4 ♠», «5 ♠», «6 ♠», «7 ♠», «8 ♠», «9 ♠», «10 ♠» , 'J ♠', 'Q ♠', 'K ♠'];
+  	return arr[value];
+}
