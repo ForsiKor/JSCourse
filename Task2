@@ -1,0 +1,89 @@
+//Возвращает площадь прямоугольника, заданную шириной и высотой.
+function  getRectangleArea ( width , height ) {
+  return width * height;
+}
+
+//Returns a circumference of circle given by radius.
+function getCicleCircumference(radius) {
+  return 2 * Math.PI * radius;
+}
+
+// Returns an average of two given numbers.
+function getAverage(value1, value2) {
+  return (value1 + value2)/2;
+}
+
+//Returns a distance beetween two points by cartesian coordinates.
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt(Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2));
+}
+
+ //Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
+ function getLinearEquationRoot(a, b) {
+  if(a == 0){
+  	return "no solutions";
+  } else {
+  	return -(b/a)
+  }
+}
+
+//Returns an angle (in radians) between two vectors given by xi and yi, coordinates
+//in Cartesian plane
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  return Math.atan2((y2 - y1), (x2 - x1));
+}
+
+//Returns a last digit of a integer number.
+function getLastDigit(value) {
+  return value % 10;
+}
+
+//Returns a number by given string representation.
+function parseNumberFromString(value) {
+  return Number(value);
+}
+
+//Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt(a*a + b*b + c*c);
+}
+
+//Returns the number rounded to specified power of 10.
+function roundToPowerOfTen(num, pow) {
+  if(pow == 0){
+  	return num;
+  } else if(pow == 1){
+  	return Math.round (num * 10) / 10;
+  } else if(pow == 2){
+  	return Math.round (num * 100) / 100;
+  } else if(pow == 3){
+  	return Math.round (num * 1000) / 1000;
+  }
+}
+
+//Returns true is the number is prime; otherwise false.
+function isPrime(n) {
+    if (n===1) {
+    return false;
+  } else if(n === 2){
+    return true;
+  } else {
+    for(var x = 2; x < n; x++) {
+      if(n % x === 0) {
+        return false;
+      }
+    }
+    return true;  
+  }
+}
+
+//Tries to convert value to number and returns it if conversion was successfull;
+//otherwise returns default value passed as a second argument.
+function toNumber(value, def) {
+	var cout = parseInt(value, 10);
+  if(isNumeric(cout) == true){
+  	return cout;
+  } else {
+  	return def;
+  }
+}
