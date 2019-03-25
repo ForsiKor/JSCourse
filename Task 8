@@ -1,0 +1,20 @@
+//Returns the rectagle object with width and height parameters and getArea() method
+var rect = new Rectangle(5, 10);
+function Rectangle(width, height) {
+  this.height = height;
+    this.width = width;
+Rectangle.prototype.getArea = function() { 
+    return this.length * this.width; 
+	}; 
+}
+console.log(rect.getArea()); 
+console.log(rect.length; 
+console.log(rect.width; 
+//Returns the JSON representation of specified object
+function getJSON(obj) {
+  return JSON.stringify(obj);
+}
+//Returns the object of specified type from JSON representation
+function fromJSON(proto, json) {
+	return JSON.parse(json , proto);
+}
