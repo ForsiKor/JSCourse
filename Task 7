@@ -1,0 +1,74 @@
+//Returns the lines sequence of "99 Bottles of Beer" song:
+function* get99BottlesOfBeer() {
+  var word = "bottles";
+	var count = 99;
+	while (count > 0) {
+    console.log(count + " " + word + " of beer on the wall");
+    console.log(count + " " + word + " of beer,");
+    console.log("Take one down, pass it around,");
+    count = count - 1;
+    if (count > 0) {
+        console.log(count + " " + word + " of beer on the wall.");
+    } else {
+        console.log("No more " + word + " of beer on the wall.");
+    }
+	}
+}
+
+//Returns the Fibonacci sequence
+function* getFibonacciSequence(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n - 1) + fib (n - 2);
+}
+
+//Traverses a tree using the depth-first strategy
+function* depthTraversalTree(root) {
+  let collection = [this.root];
+  while(collection.length){
+  	let node = collection.shift()
+  	if(node.data === root){
+  		return true;
+  	} else {
+  		collection.unshift(...node.children)
+  	}
+  }
+  return false;
+}
+
+//Traverses a tree using the breadth-first strategy
+function* breadthTraversalTree(root) {
+  let collection = [this.root];
+  while(collection.length){
+  	let node = collection.shift()
+  	if(node.data === root){
+  		return true;
+  	} else {
+  		collection.push(...node.children)
+  	}
+  }
+  return false;
+}
+
+//Merges two yield-style sorted sequences into the one sorted sequence
+function* mergeSortedSequences(source1, source2) {
+ 		let sortedArray = [];
+    while (source1.length && source2.length) {
+      let minimumElement = null;
+      if (this.comparator.lessThanOrEqual(source1[0], source2[0])) {
+        minimumElement = source1.shift();
+      } else {
+        minimumElement = source2.shift();
+      }
+      this.callbacks.visitingCallback(minimumElement);
+      sortedArray.push(minimumElement);
+    }
+    if (source1.length) {
+      sortedArray = sortedArray.concat(source1);
+    }
+    if (source2.length) {
+      sortedArray = sortedArray.concat(source2);
+    }
+    return sortedArray;
+  }
