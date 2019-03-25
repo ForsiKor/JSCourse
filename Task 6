@@ -1,0 +1,171 @@
+/*Returns the 'Fizz','Buzz' or an original number using the following rules:
+ * 1) return original number
+ * 2) but if number multiples of three return 'Fizz'
+ * 3) for the multiples of five return 'Buzz'
+ * 4) for numbers which are multiples of both three and five return 'FizzBuzz' */
+ function getFizzBuzz(num) {
+  if(num % 3 == 0 && num % 5 == 0){
+  	return 'FizzBuzz';
+  } else if(num % 3 == 0){
+  	return 'Fizz';
+  } else if(num % 5 == 0){
+  	return 'Buzz';
+  } else {
+  	return num;
+  }
+}
+
+//Returns the factorial of the specified integer n.
+function getFactorial(n) {
+  return n ? n * factorial(n - 1) : 1;
+}
+
+//Returns the sum of integer numbers between n1 and n2 (inclusive).
+function getSumBetweenNumbers(n1, n2) {
+  var result = 0;
+  for(var i = n1; i <= n2; i++){
+  	result += i;
+  }
+  return result;
+}
+
+//Returns true, if a triangle can be built with the specified sides a,b,c and false 
+//in any other ways.
+function isTriangle(a, b, c) {
+  if(a < b + c && b < a + c && c < a + b){
+  	return true;
+  } else {
+  	return false;
+  }
+}
+
+//Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
+function doRectanglesOverlap(rect1, rect2) {
+   if (l1.x > r2.x || l2.x > r1.x) {
+        return false; 
+  }
+    if (l1.y < r2.y || l2.y < r1.y) {
+        return false; 
+  }
+    return true; 
+}
+
+//Returns true, if point lies inside the circle, otherwise false.
+function isInsideCircle(circle, point) {
+  if ((point.x - circle_x) * (point.x - circle.x) + 
+  	(point.y - circle.y) * (point.y - circle.y) <= circle.rad * circle.rad) 
+       return true; 
+        else
+        return false;
+}
+
+//Returns the first non repeated char in the specified strings otherwise returns null.
+function findFirstSingleChar(str) {
+  for (var i = 0; i < str.length; i++) {
+    var c = str.charAt(i);
+    if (str.indexOf(c) == i && str.indexOf(c, i + 1) == -1) {
+      return c;
+    }
+  }
+  return null;
+}
+
+//Reverse the specified string (put all chars in reverse order)
+function reverseString(str) {
+  if (str === "")
+    return "";
+  else
+    return reverseString(str.substr(1)) + str.charAt(0);
+}
+
+//Reverse the specified integer number (put all digits in reverse order)
+function reverseInteger(num) {
+  num = num + "";
+	return num.split("").reverse().join("");
+}
+
+//Validates the CCN (credit card number) and return true if CCN is valid
+//and false otherwise.
+function isCreditCardNumber(ccn) {
+  let d = ccn.split('')
+        .map( (x) => parseInt(x) ) 
+        .map( (x,idx) => idx % 2 ? x * 3 : x )
+        .reduce( (accum, x) => accum += x );
+    d = d % 10;
+    return d === 0 ? d : 10 - d;
+}
+
+//Returns the digital root of integer
+function getDigitalRoot(num) {
+  var z = n.toString();
+  if (z.length == 2) {
+    var x = parseInt(z[0]) + parseInt(z[1]);
+    return x;
+  } else if(z.length > 2){
+    var i;
+    for(i=0;i<=z.length;i++){
+      var y = 0;
+      y += parseInt(z[i]);
+    }
+    return y;
+  }
+}
+
+//Returns true if the specified string has the balanced brackets and false otherwise
+function isBracketsBalanced(str) {
+   let stack = [];
+    let map = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '(' || str[i] === '{' || str[i] === '[' ) {
+      stack.push(str[i]);
+    } else {
+      let last = stack.pop();
+			if (str[i] !== map[last]) {return false};
+        }
+    }
+        if (stack.length !== 0) {return false};
+    return true;
+}
+
+//Returns the product of two specified matrixes.
+function getMatrixProduct(m1, m2) {
+  var m1NumRows = m1.length, aNumCols = m1[0].length,
+      m2NumRows = m2.length, bNumCols = m2[0].length,
+      m = new Array(m1NumRows);  
+  for (var r = 0; r < m1NumRows; ++r) {
+    m[r] = new Array(m2NumCols); 
+    for (var c = 0; c < m2NumCols; ++c) {
+      m[r][c] = 0;     
+      for (var i = 0; i < m1NumCols; ++i) {
+        m[r][c] += m1[r][i] * m2[i][c];
+      }
+    }
+  }
+  return m;
+}
+
+//Returns the evaluation of the specified tic-tac-toe position
+function evaluateTicTacToePosition(position) { 
+    int xCount=0, oCount=0; 
+    for (int i=0; i<9; i++) { 
+    if (position[i]=='X') xCount++; 
+    if (position[i]=='O') oCount++; 
+    }  
+    if (xCount==oCount || xCount==oCount+1) 
+    { 
+        if (isCWin(position, 'O')) 
+        { 
+            if (isCWin(position, 'X')) 
+                return false; 
+            return (xCount == oCount); 
+        }  
+        if (isCWin(position, 'X') && xCount != oCount + 1) 
+        return false;  
+        return true; 
+    } 
+    return false; 
+}
