@@ -1,0 +1,39 @@
+//Returns the functions composition of two specified functions f(x) and g(x)
+function getComposition(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}
+
+//Returns the math power function with the specified exponent
+function getPowerFunction(exponent) {
+  return Math.pow(exponent,exponent)
+}
+
+//Memoizes passed function and returns function
+//which invoked first time calls the passed function and then always returns cached result.
+function memoize(func) {
+  var cache = {};
+  return function () {
+    var str = JSON.stringify(arguments);
+    cache[str] = cache[str] || func.apply(func, arguments);
+    return cache[str];
+  };
+};
+
+//Return the function with partial applied arguments
+function partialUsingArguments(fn) {
+  const collect = (boundArgs, ...args) => {
+  const collectedArgs = boundArgs.concat(args);
+    return collectedArgs.length >= fn.length ?
+      fn.apply(null, collectedArgs) :
+      collect.bind(null, collectedArgs);
+    };
+  return collect.bind(null, []);
+}
+
+//Returns the id generator function that returns next integer starting from specified 
+//number every time when invoking.
+function getIdGeneratorFunction(startFrom) {
+  yield startFrom++;
+}
