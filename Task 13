@@ -1,0 +1,100 @@
+//Takes two strings including only letters from a to z.
+//Returns a new sorted string containing distinct letters.
+function distinctLettersString(value1, value2) {
+  var result = [];
+	return value1.concat(value2).split("").sort().filter(function(x){
+		if (!result.includes(x)) {
+			result.push(x);
+			return x;
+		}
+	}).join("");
+}
+
+/*Write a function that will convert a string into title case, given an optional
+ * list of exception (minor words). The list of minor words will be given as a
+ * string with each word separated by a space. Your function should ignore the
+ * case of the minor words string - it should behave in the same way even if the
+ * case of the minor word is changed */
+ function titleCaseConvert(title, minorWords) {
+  if (title===('')) {
+        return ""
+     }
+
+    var arrTitle=title.split(" ")
+    //console.log(arrTitle)
+    var arrMinor;
+    
+    if (minorWords){
+    arrMinor=minorWords.split(" ")
+    }else{
+        arrMinor=[];
+    }
+    //console.log(arrMinor)
+    
+    var arrLower=[];
+    var arr2=[];
+  
+  for (j=0;j<arrTitle.length;j++){
+      arrTitle[j]=arrTitle[j].split("")
+      
+      for (k=0;k<arrTitle[j].length;k++){
+          arrTitle[j][k]=arrTitle[j][k].toLowerCase()
+      }
+      arrLower.push(arrTitle[j].join(""))
+      console.log(arrLower)
+  }
+  
+  for (j=0;j<arrMinor.length;j++){
+      arrMinor[j]=arrMinor[j].split("")
+      
+      for (k=0;k<arrMinor[j].length;k++){
+          arrMinor[j][k]=arrMinor[j][k].toLowerCase()
+      }
+      arr2.push(arrMinor[j].join(""))
+      console.log(arr2)
+  }
+  
+  for (j=0;j<arrLower.length;j++){
+      if((arr2.indexOf(arrLower[j]))===-1){
+          
+        var word1=arrLower[j].split("")
+        word1[0]=word1[0].toUpperCase()
+        arrLower[j]=word1.join("")
+        console.log(arrLower[j])
+        
+          console.log(arrLower[j]+", this word should have upper case on 1st letter")
+      }else{
+          arrLower[j]
+          console.log(arrLower[j]+", all letters in this word stay lower case")
+      }
+    }
+      var firstWord=arrLower[0].split("")
+      firstWord[0]=firstWord[0].toUpperCase()
+      arrLower[0]=firstWord.join("")
+      console.log(firstWord)
+      
+     arrLower=arrLower.join(" ")
+    return arrLower
+}
+
+//Your job is to create a calculator which evaluates expressions in Reverse Polish
+//notation
+function calcRPN(expr) {
+   var ar = expr.split( /\s+/ ), st = [], token;
+  while( token = ar.shift() ) { 
+    if ( token == +token ) {
+      st.push( token );
+    } else {
+      var n2 = st.pop(), n1 = st.pop();
+      var re = /^[\+\-\/\*]$/;
+      if( n1 != +n1 || n2 != +n2 || !re.test( token ) ) {
+        throw new Error( 'Invalid expression: ' + expr );
+      }
+      st.push( eval( n1 + token + ' ' + n2 ) );
+    }
+  }
+  if( st.length !== 1 ) {
+    throw new Error( 'Invalid expression: ' + expr );
+  }
+  return st.pop();
+}
