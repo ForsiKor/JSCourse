@@ -1,0 +1,37 @@
+//Returns the array of 32 compass points and heading
+function createCompassPoints(sides = ['N', 'E', 'S', 'W']) {
+	return ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW', 'N']
+	[Math.round(degrees / 11.25 / 2)];
+}
+
+//The fundamental idea in the JPEG compression algorithm is to sort coefficient 
+//of given image by zigzag path and encode it
+function getZigZagMatrix(n) {
+  this.height = n;
+    this.width = n;
+ 
+    this.mtx = [];
+    for (var i = 0; i < n; i++) 
+        this.mtx[i] = [];
+ 
+    var i=1, j=1;
+    for (var e = 0; e < n*n; e++) {
+        this.mtx[i-1][j-1] = e;
+        if ((i + j) % 2 == 0) {
+            // Even stripes
+            if (j < n) j ++;
+            else       i += 2;
+            if (i > 1) i --;
+        } else {
+            // Odd stripes
+            if (i < n) i ++;
+            else       j += 2;
+            if (j > 1) j --;
+        }
+    }
+}
+
+//Returns the string expression of the specified ordered list of integers
+function extractRanges(nums) {
+  return nums.toString();
+}
